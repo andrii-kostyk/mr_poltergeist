@@ -1,0 +1,57 @@
+# GENERAL =========================================
+start:
+  method_name: 'start'
+  class_name: 'PoltergeistManager'
+  allow: ['torrent']
+stop:
+  method_name: 'stop'
+  class_name: 'PoltergeistManager'
+  allow: []
+# TORRENT =========================================
+torrent:
+  method_name: 'actions'
+  class_name: 'TorrentManager'
+  allow: ['login_torrent', 'add_torrent', 'list_torrent']
+list_torrent:
+  method_name: 'list'
+  class_name: 'TorrentManager'
+  allow: ['list_torrent', 'torrent_details']
+  expect: 'torrent_details'
+torrent_details:
+  method_name: 'details' 
+  class_name: 'TorrentManager'
+  allow: ['pause_torrent', 'resume_torrent', 'delete_torrent', 'delete_torrent_with_data']
+pause_torrent:
+  method_name: 'pause'
+  class_name: 'TorrentManager'
+  allow: []
+resume_torrent:
+  method_name: 'resume'
+  class_name: 'TorrentManager'
+  allow: []
+delete_torrent:
+  method_name: 'delete_from_list'
+  class_name: 'TorrentManager'
+  allow: []
+delete_torrent_with_data:
+  method_name: 'delete_with_data'
+  class_name: 'TorrentManager'
+  allow: []
+login_torrent:
+  method_name: 'login'
+  class_name: 'TorrentManager'
+  allow: ['torrent']
+add_torrent:
+  method_name: 'add'
+  class_name: 'TorrentManager'
+  allow: ['by_file']
+by_file: 
+  method_name: 'by_file'
+  class_name: 'TorrentManager'
+  allow: ['download_file']
+  expect: 'download_file'
+download_file:
+  method_name: 'download_file' 
+  class_name: 'TorrentManager'
+  allow: []
+# =================================================
