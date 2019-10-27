@@ -15,8 +15,8 @@ class TorrentManager
   def login
   	response = request(:post, '/login', {
       body: {
-      	username: TORRENT_CONFIG[:login],
-      	password: TORRENT_CONFIG[:password],
+      	username: SECRETS[:qbittorrent][:login],
+      	password: SECRETS[:qbittorrent][:password],
       }
   	})
 
@@ -167,7 +167,7 @@ class TorrentManager
     file_name = @message.document.file_name
     file_url = TelegramBot.get_file_url(file_id)
 
-    open("#{TORRENT_CONFIG[:autoload_path]}/#{file_name}", 'wb') do |file|
+    open("#{GENERAL[:qbittorrent][:autoload_path]}/#{file_name}", 'wb') do |file|
       file << open(file_url).read
     end
 
@@ -177,7 +177,7 @@ class TorrentManager
   private
 
   def request(http_method, action, params)
-    Faraday.new(url: 'http://192.168.3.20:8080').public_send(http_method) do |req|
+    Faraday.new(url: GENERAL[:qbittorrent][:server]).public_send(http_method) do |req|
       req.url(action)
 
       unless params[:inline].blank?

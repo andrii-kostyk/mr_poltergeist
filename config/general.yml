@@ -1,0 +1,7 @@
+app_path: '/home/pi/mr_poltergeist'
+qbittorrent:
+  autoload_path: '/media/external_hdd/torrent'
+  server: 'http://127.0.0.1:8080'
+redis:
+  host: '127.0.0.1'
+  port: 6379

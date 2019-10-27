@@ -1,7 +1,7 @@
 class ApplicationHelper
   class << self
     def fetch_config(file)
-	  YAML.load(File.read(File.join(File.expand_path('..', __FILE__), '../config', "#{file}.yml")))
+	    YAML.load(File.read(File.join(File.expand_path('..', __FILE__), '../config', "#{file}.yml")))
     end
 
     def response(message, keyboard = nil)
